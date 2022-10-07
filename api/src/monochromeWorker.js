@@ -1,6 +1,8 @@
 const gm = require('gm');
 const { workerData, parentPort } = require('worker_threads');
 
+console.log('[monochromeWorker] Source: %s', workerData.source)
+console.log('[monochromeWorker] Destination: %s', workerData.destination)
 gm(workerData.source)
     .monochrome()
     .write(workerData.destination, (error) => {
